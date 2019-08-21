@@ -38,10 +38,8 @@ public class BlockBuild : MonoBehaviour {
 
 				RaycastHit2D boxCast = Physics2D.BoxCast(centerLocation, dimensions, 0, Vector2.zero);
 				if (boxCast.collider == null) {
-					Debug.Log("All clear!");
 					placed.transform.position = centerLocation;
 				} else {
-					Debug.Log("Collision!!");
 					Destroy(placed);
 				}
 			}

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	private bool facingLeft = true;
 	private SpriteRenderer spriteRenderer;
 	private int floorLayer = 8;
+	private int deathLayer = 9;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		// Move left and right
 		float translation = Input.GetAxis("Horizontal") * speed;
-		transform.Translate(translation, 0, 0);
+		walk(translation);
 
 		// Change appearance based on direction travelled
 		if ((facingLeft && translation > 0) || (!facingLeft && translation < 0)) {
@@ -36,18 +37,40 @@ public class PlayerController : MonoBehaviour {
 
 		// Jump
 		if (Input.GetAxis("Jump") == 1f && !jumping && hasLanded) {
-			rb2d.AddForce(new Vector3(0, 5, 0), ForceMode2D.Impulse);
-			jumping = true;
-			hasLanded = false;
+			jump();
 		} else if (Input.GetAxis("Jump") == 0f) {
 			jumping = false;
 		}
+	}
+
+	void jump() {
+		rb2d.AddForce(new Vector3(0, 5, 0), ForceMode2D.Impulse);
+		jumping = true;
+		hasLanded = false;
+	}
+
+	void walk(float translation) {
+		// translation: walk power. Negative for left-walking
+		transform.Translate(translation, 0, 0);
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
 		int col_layer = col.gameObject.layer;
 		if (col_layer == floorLayer) {
 			hasLanded = true;
+		} else if (col_layer == deathLayer) {
+			Debug.Log("DEAD!");
 		}
+	}
+
+	void OnTriggerEnter2D(Collider2D trig) {
+		if (trig.gameObject.layer == deathLayer) {
+			die();
+		}
+	}
+
+	void die() {
+		Debug.Log("" + gameObject + " Died!");
+		Destroy(gameObject);
 	}
 }
