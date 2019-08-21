@@ -16,7 +16,7 @@ public class DestructibleBlock : MonoBehaviour {
 		
 	}
 
-	void OnMouseUp() {
+	void OnMouseDown() {
 		Debug.Log("Blam!");
 		Destroy(gameObject);
 	}

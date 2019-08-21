@@ -17,20 +17,6 @@ public class BlockBuild : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		placing = null;
-
-		invisible = new Color(0, 0, 0, 0);
-		ghostColor = Color.clear;
-
-		dynamicGhost = Instantiate(toPlaceDynamic);
-		
-		dynamicGhost.GetComponent<BoxCollider2D>().isTrigger = true;
-		dynamicGhost.GetComponent<SpriteRenderer>().color = invisible;
-		Debug.Log(dynamicGhost.GetComponent<SpriteRenderer>().color);
-
-		fixedGhost = Instantiate(toPlaceFixed);
-		fixedGhost.GetComponent<BoxCollider2D>().isTrigger = true;
-		fixedGhost.GetComponent<SpriteRenderer>().color = invisible;
 	}
 	
 	
@@ -68,7 +54,7 @@ public class BlockBuild : MonoBehaviour {
 				// Not colliding, place object
 				placing.GetComponent<BoxCollider2D>().isTrigger = false;
 				placing.GetComponent<BoxCollider2D>().enabled = true;
-				placing.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+				placing.GetComponent<SpriteRenderer>().color = Color.black;
 				placing.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			} else {
 				// Abort mission
@@ -76,9 +62,5 @@ public class BlockBuild : MonoBehaviour {
 			}
 			currrentlyPlacing = false;
 		}
-	}
-
-	void PlaceBlock(Vector3 whereToPlace, GameObject toPlace) {
-		
 	}
 }
