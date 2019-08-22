@@ -69,6 +69,7 @@ public class BlockBuild : MonoBehaviour {
 				placing.GetComponent<BoxCollider2D>().isTrigger = false;
 				placing.GetComponent<BoxCollider2D>().enabled = true;
 				placing.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+				placing.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			} else {
 				// Abort mission
 				Destroy(placing);
