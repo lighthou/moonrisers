@@ -12,9 +12,11 @@ public class PlayerController : MonoBehaviour {
 	private int floorLayer = 8;
 	private int deathLayer = 9;
 	private Animator animator;
+	private bool dead;
 
 	// Use this for initialization
 	void Start () {
+		dead = false;
 		speed = 0.1f;
 		rb2d = gameObject.GetComponent<Rigidbody2D>();
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -33,12 +35,12 @@ public class PlayerController : MonoBehaviour {
 		walk(translation);
 
 		// Change appearance based on direction travelled
-		if ((facingLeft && translation > 0) || (!facingLeft && translation < 0)) {
+		if (((facingLeft && translation > 0) || (!facingLeft && translation < 0)) && !dead) {
 			flip();
 		}
 
 		// Jump
-		if (Input.GetAxis("Jump") == 1f && !jumping && hasLanded) {
+		if (Input.GetAxis("Jump") == 1f && !jumping && hasLanded && !dead) {
 			jump();
 		} else if (Input.GetAxis("Jump") == 0f) {
 			jumping = false;
@@ -46,6 +48,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void jump() {
+		if (dead) {
+			return;
+		}
 		rb2d.AddForce(new Vector3(0, 5, 0), ForceMode2D.Impulse);
 		jumping = true;
 		hasLanded = false;
@@ -53,6 +58,9 @@ public class PlayerController : MonoBehaviour {
 
 	void walk(float translation) {
 		// translation: walk power. Negative for left-walking
+		if (dead) {
+			return;
+		}
 		transform.Translate(translation, 0, 0);
 	}
 
@@ -71,9 +79,11 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	
 	void die() {
 		Debug.Log("" + gameObject + " Died!");
 		animator.SetBool("Dead", true);
+		dead = true;
 		// Destroy(gameObject);
 	}
 }
