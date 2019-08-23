@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour {
 	private SpriteRenderer spriteRenderer;
 	private int floorLayer = 8;
 	private int deathLayer = 9;
+	private Animator animator;
 
 	// Use this for initialization
 	void Start () {
 		speed = 0.1f;
 		rb2d = gameObject.GetComponent<Rigidbody2D>();
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		animator = gameObject.GetComponent<Animator>();
 	}
 
 	void flip() {
@@ -71,6 +73,7 @@ public class PlayerController : MonoBehaviour {
 
 	void die() {
 		Debug.Log("" + gameObject + " Died!");
-		Destroy(gameObject);
+		animator.SetBool("Dead", true);
+		// Destroy(gameObject);
 	}
 }

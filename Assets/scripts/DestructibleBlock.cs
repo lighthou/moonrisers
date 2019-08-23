@@ -16,9 +16,11 @@ public class DestructibleBlock : MonoBehaviour {
 		
 	}
 
-	void OnMouseDown() {
-		Debug.Log("Blam!");
-		Destroy(gameObject);
+	void OnMouseOver() {
+		if (Input.GetMouseButtonDown(1)) {
+			Debug.Log("Blam!");
+			Destroy(gameObject);
+		}
 	}
 
 }

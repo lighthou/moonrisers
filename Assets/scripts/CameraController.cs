@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         if (rolling) {
-            speed = 0.01f;
+            speed = 0.005f;
         } else {
             speed = 0;
         }
