@@ -22,18 +22,35 @@ public class BlockBuild : MonoBehaviour {
 	private Color canPlaceColor;
 	private Color cantPlaceColor;
 
+	private GameObject[] placeOptions;
+	private GameObject toPlace;
+	private int whichToPlace;
+
 	// Use this for initialization
 	void Start () {
 		canPlaceColor = new Color(1, 0, 1, 0.5f); // magenta
 		cantPlaceColor = new Color(1, 0, 0, 0.5f); // red
+		
+		placeOptions = new GameObject[2];
+		placeOptions[0] = toPlaceDynamic;
+		placeOptions[1] = toPlaceFixed;
+		whichToPlace = 0;
+
 		GetNewGhost();
 	}
 
+	void SelectNextBlock() {
+		toPlace = placeOptions[whichToPlace];
+		whichToPlace += 1;
+		if (whichToPlace == 2) {
+			whichToPlace = 0;
+		}
+	}
+
 	void GetNewGhost() {
-		// if (ghost != null) {
-		// 	Destroy(ghost);
-		// }
-		ghost = Instantiate(toPlaceDynamic);
+		SelectNextBlock();
+		Debug.Log(toPlace);
+		ghost = Instantiate(toPlace);
 		ghostSpriteRenderer = ghost.GetComponent<SpriteRenderer>();
 		ghostSpriteRenderer.color = Color.clear; // otherwise it will flicker in spawn location beore heading to mouse
 		
