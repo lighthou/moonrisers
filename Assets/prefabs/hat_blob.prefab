@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 212637000066896796}
   - component: {fileID: 50973154132418864}
   - component: {fileID: 61610847947253742}
-  - component: {fileID: 114408073449597054}
   - component: {fileID: 3618251269393448557}
+  - component: {fileID: 114408073449597054}
+  - component: {fileID: 6049370517213564979}
   m_Layer: 0
   m_Name: hat_blob
   m_TagString: Untagged
@@ -131,18 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.26, y: 2.51}
   m_EdgeRadius: 0
---- !u!114 &114408073449597054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1236218605777690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d52ca0cdb5b444089fdadb41879edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &3618251269393448557
 Animator:
   serializedVersion: 3
@@ -162,3 +151,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114408073449597054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236218605777690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d52ca0cdb5b444089fdadb41879edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+--- !u!114 &6049370517213564979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236218605777690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d8cca1b36fd42d9bbbbf1b9183f369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 5
+  extraJumps: 3
+  groundCheck: {fileID: 0}
+  checkRadius: 0.5
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
