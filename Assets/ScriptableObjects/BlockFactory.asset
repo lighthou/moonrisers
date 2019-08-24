@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BlockFactory
   m_EditorClassIdentifier: 
   Blocks:
-  - {fileID: 1970269714040550, guid: c2177a2fa0173684c94e9f4a47ac6c4a, type: 3}
-  - {fileID: 1028352997914054, guid: 5f0090bbbe7f17848b003caa7ddc0d7f, type: 3}
-  blockIndex: 1
+  - {fileID: 6080398719334361766, guid: 05e0a5c8bb9b4401ea8a6e7c454b6eaf, type: 3}
+  - {fileID: 1309092563695153086, guid: 54f1bcbfce2af4af5adb63cf47c155b1, type: 3}
+  - {fileID: 6179825791498518678, guid: 0f094bfce8d6b42a1b913bbd844fee52, type: 3}
+  blockIndex: 3
