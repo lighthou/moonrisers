@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 6080398719334361765}
   - component: {fileID: 6080398719334361764}
   - component: {fileID: 6080398719334361767}
+  - component: {fileID: -8423882858496344778}
   m_Layer: 8
   m_Name: TallBlock
   m_TagString: Untagged
@@ -241,3 +242,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-8423882858496344778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080398719334361766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd1d7b5f605d4d38b9d421d447a1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -11,7 +11,6 @@ public class BlockFactory : ScriptableObject
     public GameObject GetNextBlock(Vector3 position)
     {
         blockIndex = blockIndex % Blocks.Count;
-        Debug.Log("Current Index: " + blockIndex);
         var block = Instantiate(Blocks[blockIndex], position, Quaternion.identity);
         blockIndex++;
         return block;
