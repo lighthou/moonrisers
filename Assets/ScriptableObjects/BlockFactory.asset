@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Blocks:
   - {fileID: 1970269714040550, guid: c2177a2fa0173684c94e9f4a47ac6c4a, type: 3}
+  - {fileID: 1309092563695153086, guid: 54f1bcbfce2af4af5adb63cf47c155b1, type: 3}
   - {fileID: 1028352997914054, guid: 5f0090bbbe7f17848b003caa7ddc0d7f, type: 3}
   blockIndex: 1
