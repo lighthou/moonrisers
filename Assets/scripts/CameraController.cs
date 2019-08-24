@@ -4,21 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public bool rolling;
-    private float speed;
+    [SerializeField] private float rollSpeed;
     // Start is called before the first frame update
     void Start()
     {
-        if (rolling) {
-            speed = 0.005f;
-        } else {
-            speed = 0;
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, speed, 0);
+        transform.Translate(0, rollSpeed, 0);
     }
 }

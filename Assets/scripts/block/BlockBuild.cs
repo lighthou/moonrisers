@@ -3,17 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockBuild : MonoBehaviour {
-	public GameObject toPlaceDynamic;
-	public GameObject toPlaceFixed;
-	private GameObject dynamicGhost;
-	private GameObject fixedGhost;
-	private Color ghostColor;
-	private Color invisible;
-
-	private GameObject placing;
+	public BlockFactory blockFactory;
 	private bool currrentlyPlacing;
-	private Vector2 dimensions; // dimensions of box being placed
-
 
 	private GameObject ghost;
 	private SpriteRenderer ghostSpriteRenderer;
@@ -22,37 +13,22 @@ public class BlockBuild : MonoBehaviour {
 	private Color canPlaceColor;
 	private Color cantPlaceColor;
 
-	private GameObject[] placeOptions;
-	private GameObject toPlace;
-	private int whichToPlace;
+    private Vector2 dimensions;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+		// TODO: Change this to use a scriptable object
 		canPlaceColor = new Color(1, 0, 1, 0.5f); // magenta
 		cantPlaceColor = new Color(1, 0, 0, 0.5f); // red
 		
-		placeOptions = new GameObject[2];
-		placeOptions[0] = toPlaceDynamic;
-		placeOptions[1] = toPlaceFixed;
-		whichToPlace = 0;
-
 		GetNewGhost();
 	}
 
-	void SelectNextBlock() {
-		toPlace = placeOptions[whichToPlace];
-		whichToPlace += 1;
-		if (whichToPlace == 2) {
-			whichToPlace = 0;
-		}
-	}
-
 	void GetNewGhost() {
-		SelectNextBlock();
-		Debug.Log(toPlace);
-		ghost = Instantiate(toPlace);
+		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		ghost = blockFactory.GetNextBlock(mousePos);
+
 		ghostSpriteRenderer = ghost.GetComponent<SpriteRenderer>();
-		ghostSpriteRenderer.color = Color.clear; // otherwise it will flicker in spawn location beore heading to mouse
 		
 		ghostCollider = ghost.GetComponent<BoxCollider2D>();		
 		float width = ghostCollider.bounds.size.x;
