@@ -13,12 +13,14 @@ public class Jump : MonoBehaviour
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
 
         rb = gameObject.GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,11 +32,13 @@ public class Jump : MonoBehaviour
 
         if (isGrounded)
         {
+            animator.SetBool("Jumping", false);
             extrasUsed = 0;
         }
 
         if (isJumping && (isGrounded || extrasUsed < extraJumps))
         {
+            animator.SetBool("Jumping", true);
             rb.velocity = Vector2.up * jumpForce;
             extrasUsed++;
         }

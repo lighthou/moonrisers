@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour
     void Move(float moveInput)
     {
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        
+        animator.SetFloat("Speed", rb.velocity.x);
+
         // Change appearance based on direction travelled
         if (((facingLeft && moveInput > 0) || (!facingLeft && moveInput < 0)) && !dead)
         {
