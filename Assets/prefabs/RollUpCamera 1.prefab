@@ -97,6 +97,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4e76ac028bb1e44b3de67e3ef4d062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rollSpeed: 0
+--- !u!114 &90723020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854424311105236771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2dbe07420634d78a4438f2cdaa43e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5461139785017658776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 4616853523166503611, guid: 5d2b6383d4df31e42bd0e17c6221928b,
         type: 3}
       propertyPath: m_Name
-      value: rectangle100x100white
+      value: DeathZone
       objectReference: {fileID: 0}
     - target: {fileID: 4616853523166503610, guid: 5d2b6383d4df31e42bd0e17c6221928b,
         type: 3}
@@ -166,6 +179,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2b6383d4df31e42bd0e17c6221928b, type: 3}
+--- !u!1 &854424311105236771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4616853523166503611, guid: 5d2b6383d4df31e42bd0e17c6221928b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5461139785017658776}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &854424311105236770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4616853523166503610, guid: 5d2b6383d4df31e42bd0e17c6221928b,

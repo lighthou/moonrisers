@@ -48,37 +48,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        int col_layer = col.gameObject.layer;
-        if (col_layer == deathLayer)
-        {
-            Debug.Log("DEAD!");
-        }
-    }
+    // void OnCollisionEnter2D(Collision2D col)
+    // {
+    //     int col_layer = col.gameObject.layer;
+    //     if (col_layer == deathLayer)
+    //     {
+    //         Debug.Log("DEAD!");
+    //     }
+    // }
 
-    void OnTriggerEnter2D(Collider2D trig)
+    void OnTriggerEnter2D(Collider2D trigger)
     {
-        switch (trig.gameObject.tag)
+        switch (trigger.gameObject.tag)
         {
             case "Moon":
                 Debug.Log("WINNER!");
                 break;
             default: break;
         }
-
-        if (trig.gameObject.layer == deathLayer)
-        {
-            Die();
-        }
     }
 
 
-    void Die()
-    {
-        Debug.Log("" + gameObject + " Died!");
-        animator.SetBool("Dead", true);
-        dead = true;
-        // Destroy(gameObject);
-    }
+    // void Die()
+    // {
+    //     Debug.Log("" + gameObject + " Died!");
+    //     animator.SetBool("Dead", true);
+    //     dead = true;
+    //     // Destroy(gameObject);
+    // }
 }
