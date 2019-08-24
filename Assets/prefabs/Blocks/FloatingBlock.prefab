@@ -90,6 +90,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6179825791498518683}
   - component: {fileID: 6179825791498518676}
+  - component: {fileID: 709511803}
+  - component: {fileID: 709511801}
   m_Layer: 8
   m_Name: FloatingBlock
   m_TagString: Untagged
@@ -125,7 +127,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,6 +141,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &709511803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6179825791498518678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab78df3c84824174a28b46f15e6b544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 4
+  magnitude: 0.1
+  isPlaced: 0
+--- !u!114 &709511801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6179825791498518678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd1d7b5f605d4d38b9d421d447a1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6179825792600298301
 GameObject:
   m_ObjectHideFlags: 0
