@@ -10,6 +10,7 @@ public class BlockBuilder : MonoBehaviour
 
     private Color canPlaceColor;
     private Color cantPlaceColor;
+    private Color mouseOverColor;
 
     private Vector2 dimensions;
 
@@ -19,6 +20,7 @@ public class BlockBuilder : MonoBehaviour
         // TODO: Change this to use a scriptable object
         canPlaceColor = new Color(1, 0, 1, 0.5f); // magenta
         cantPlaceColor = new Color(1, 0, 0, 0.5f); // red
+        mouseOverColor = new Color(1, 1, 1, 0.1f); // opaic
 
         GetNewGhost();
     }
@@ -39,9 +41,21 @@ public class BlockBuilder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var canPlaceBlock = MoveBlock();
+        var mousePosition = MoveBlock();
+        Color colorToApply;
+        switch (mousePosition)
+        {
+            case MousePosition.clear:
+                colorToApply = canPlaceColor;
+                break;
+            case MousePosition.colliding:
+                colorToApply = cantPlaceColor;
+                break;
+            default:
+                colorToApply = mouseOverColor;
+                break;
+        }
 
-        var colorToApply = canPlaceBlock ? canPlaceColor : cantPlaceColor;
         ApplyColor(colorToApply);
 
         if (!currrentlyPlacing && Input.GetMouseButtonDown(0))
@@ -49,7 +63,7 @@ public class BlockBuilder : MonoBehaviour
             currrentlyPlacing = true;
         }
 
-        if (currrentlyPlacing && Input.GetMouseButtonUp(0) && canPlaceBlock)
+        if (currrentlyPlacing && Input.GetMouseButtonUp(0) && mousePosition == MousePosition.clear)
         {
             PlaceBlock();
             GetNewGhost();
@@ -57,13 +71,19 @@ public class BlockBuilder : MonoBehaviour
     }
 
     /* Returns whether the block can be placed */
-    bool MoveBlock()
+    MousePosition MoveBlock()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
         ghost.transform.position = mousePos2D;
         RaycastHit2D boxCast = Physics2D.BoxCast(mousePos, dimensions, 0, Vector2.zero);
-        return boxCast.collider == null;
+        if (boxCast.collider == null)
+        {
+            return MousePosition.clear;
+        }
+
+        RaycastHit2D mouseCast = Physics2D.Raycast(mousePos, Vector2.zero, 0);
+        return mouseCast.collider == null ? MousePosition.colliding : MousePosition.onBlock;
     }
 
     void PlaceBlock()
@@ -74,10 +94,13 @@ public class BlockBuilder : MonoBehaviour
             rigidbody.velocity = Vector2.zero;
         }
 
-        var block = ghost.GetComponent<FloatingBlock>();
-        if (block != null)
+        var components = ghost.GetComponents<MonoBehaviour>();
+        foreach (var component in components)
         {
-            block.PlaceBlock();
+            if (component is IBlock)
+            {
+                ((IBlock)component).PlaceBlock();
+            }
         }
 
         // Reset the color back to normal
