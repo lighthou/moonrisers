@@ -398,6 +398,11 @@ PrefabInstance:
       propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 854424311105236781, guid: dcf107f72979fa0499c466383248e991,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 90723020, guid: dcf107f72979fa0499c466383248e991, type: 3}
       propertyPath: onExit
       value: 1
