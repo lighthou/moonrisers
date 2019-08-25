@@ -52,10 +52,6 @@ public class GameMaster : MonoBehaviour
         }
         else
         {
-            // Transform hud = GameObject.Find("HUD").transform;
-            // Transform gameover = Instantiate(gameOverPrefab, Vector3.zero, Quaternion.Euler(0,0,0));
-            // gameover.SetParent(hud, false);
-            // TODO display game over;
             GameObject.Find("GameOver").GetComponent<Image>().enabled = true;
         }
     }
