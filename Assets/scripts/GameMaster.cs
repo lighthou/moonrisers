@@ -39,10 +39,11 @@ public class GameMaster : MonoBehaviour
         int lives = player.GetComponent<Lives>().lives;
         Destroy(player.GetComponent<BlockBuilder>().ghost);
         Destroy(player.gameObject);
-        if (player.GetComponent<Lives>().lives > 0)
+        Debug.Log(lives);
+        if (lives > 0)
         {
             gm.RespawnPlayer();
-            playerTransform.GetComponent<Lives>().lives = lives - 1;
+            playerTransform.GetComponent<Lives>().Init(lives - 1);
 
         }
         else
