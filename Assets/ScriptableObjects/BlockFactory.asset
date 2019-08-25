@@ -15,5 +15,7 @@ MonoBehaviour:
   Blocks:
   - {fileID: 6080398719334361766, guid: 05e0a5c8bb9b4401ea8a6e7c454b6eaf, type: 3}
   - {fileID: 1309092563695153086, guid: 54f1bcbfce2af4af5adb63cf47c155b1, type: 3}
+  - {fileID: 2762338791420584811, guid: be86e9a9143254d34b49b952d45cc6bc, type: 3}
+  - {fileID: 3838750169975616886, guid: a23880f31a27a45b2a8ff58a1271ae12, type: 3}
   - {fileID: 6179825791498518678, guid: 0f094bfce8d6b42a1b913bbd844fee52, type: 3}
-  blockIndex: 3
+  blockIndex: 1

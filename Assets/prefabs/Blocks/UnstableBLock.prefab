@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 3838750169975616883}
   - component: {fileID: 3838750169975616884}
   - component: {fileID: 3838750169975616885}
+  - component: {fileID: 2109319690}
   m_Layer: 8
   m_Name: UnstableBLock
   m_TagString: Untagged
@@ -395,3 +396,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2109319690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838750169975616886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b1df49d81bb4d4488f57abab12afa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ySpeed: 10
+  xSpeed: 17
+  magnitude: 0.1
