@@ -98,8 +98,8 @@ MonoBehaviour:
   explosion: {fileID: 3022117972464487129, guid: d6aa5c7f176414e3483608a98e12f517,
     type: 3}
   radius: 2
-  power: 50
-  dropTime: 2
+  power: 100
+  dropTime: 0.7
 --- !u!50 &6796166663429620398
 Rigidbody2D:
   serializedVersion: 4
