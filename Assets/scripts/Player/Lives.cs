@@ -21,7 +21,15 @@ public class Lives : MonoBehaviour
         {
             lifeImages[i] = Instantiate(lifePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
             lifeImages[i].transform.SetParent(canvas, false);
-            lifeImages[i].transform.Translate(i * 1f, 0, 0);
+            lifeImages[i].transform.Translate(1 * i, 0, 0);
+            
+            if(i == 0) {
+                continue;
+            }
+
+            lifeImages[i] = Instantiate(lifePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
+            lifeImages[i].transform.SetParent(canvas, false);
+            lifeImages[i].transform.Translate(-1 * i, 0, 0);
         }
 
     }
@@ -55,5 +63,10 @@ public class Lives : MonoBehaviour
         //         hearts[i].enabled = false;
         //     }
         // }
+    }
+
+    private int isEven(int number)
+    {
+        return number % 2 == 0 ? 1 : -1;
     }
 }
