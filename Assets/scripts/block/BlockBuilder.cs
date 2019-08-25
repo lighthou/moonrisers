@@ -5,7 +5,7 @@ public class BlockBuilder : MonoBehaviour
     public BlockFactory blockFactory;
     private bool currrentlyPlacing;
 
-    private GameObject ghost;
+    public GameObject ghost { get; private set; }
     private BoxCollider2D ghostCollider;
 
     private Color canPlaceColor;

@@ -7,7 +7,6 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private float rollSpeed;
     private Camera camera;
-    private Transform player;
     private Func<Vector3> GetCameraFollowPositionFunc;
 
     [SerializeField] private float followSpeed;
@@ -16,16 +15,14 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         camera = GetComponent<Camera>();
-        player = GameObject.Find("Player").transform;
     }
 
     public void Init(Func<Vector3> GetCameraFollowPositionFunc)
     {
         this.GetCameraFollowPositionFunc = GetCameraFollowPositionFunc;
-
     }
 
-    public void SetGetCameraPositionFunc(Func<Vector3> GetCameraFollowPositionFunc)
+    public void SetCameraFollowPositionFunc(Func<Vector3> GetCameraFollowPositionFunc)
     {
         this.GetCameraFollowPositionFunc = GetCameraFollowPositionFunc;
     }
