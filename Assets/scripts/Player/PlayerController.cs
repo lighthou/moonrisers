@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
-    public int lives = 3;
-
     private Rigidbody2D rb;
     private bool facingLeft = true;
 
@@ -55,12 +53,6 @@ public class PlayerController : MonoBehaviour
                 break;
             default: break;
         }
-    }
-
-
-    public void removeLives(int num)
-    {
-        lives -= num;
     }
 
 }
