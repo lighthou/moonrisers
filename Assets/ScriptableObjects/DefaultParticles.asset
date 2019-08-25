@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45da45b0f1394904b6fd94df8b2a569, type: 3}
+  m_Name: DefaultParticles
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 3022117972464487129, guid: d6aa5c7f176414e3483608a98e12f517,
+    type: 3}
+  floating: {fileID: 3022117972464487129, guid: d6aa5c7f176414e3483608a98e12f517,
+    type: 3}
+  destroy: {fileID: 3022117972464487129, guid: 4e020690e24874d5d804da431e5ff050, type: 3}
