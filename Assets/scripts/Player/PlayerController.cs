@@ -5,20 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
-
     private Rigidbody2D rb;
     private bool facingLeft = true;
 
     private SpriteRenderer spriteRenderer;
-    private int floorLayer = 8;
-    private int deathLayer = 9;
     private Animator animator;
-    private bool dead;
 
     // Use this for initialization
     void Start()
     {
-        dead = false;
         rb = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
@@ -43,20 +38,11 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", rb.velocity.x);
 
         // Change appearance based on direction travelled
-        if (((facingLeft && moveInput > 0) || (!facingLeft && moveInput < 0)) && !dead)
+        if (((facingLeft && moveInput > 0) || (!facingLeft && moveInput < 0)))
         {
             Flip();
         }
     }
-
-    // void OnCollisionEnter2D(Collision2D col)
-    // {
-    //     int col_layer = col.gameObject.layer;
-    //     if (col_layer == deathLayer)
-    //     {
-    //         Debug.Log("DEAD!");
-    //     }
-    // }
 
     void OnTriggerEnter2D(Collider2D trigger)
     {
@@ -69,12 +55,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    // void Die()
-    // {
-    //     Debug.Log("" + gameObject + " Died!");
-    //     animator.SetBool("Dead", true);
-    //     dead = true;
-    //     // Destroy(gameObject);
-    // }
 }
