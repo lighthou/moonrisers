@@ -15,26 +15,31 @@ public class Lives : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Transform canvas = GameObject.Find("PlayerLives").transform;
-        lifeImages = new Image[lives];
-        for (int i = 0; i < lifeImages.Length; i++)
-        {
-            lifeImages[i] = Instantiate(lifePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
-            lifeImages[i].transform.SetParent(canvas, false);
-            lifeImages[i].transform.Translate(1 * i, 0, 0);
-            
-            if(i == 0) {
-                continue;
-            }
-
-            lifeImages[i] = Instantiate(lifePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
-            lifeImages[i].transform.SetParent(canvas, false);
-            lifeImages[i].transform.Translate(-1 * i, 0, 0);
-        }
-
+        // Transform canvas = GameObject.Find("PlayerLives").transform;
+        // lifeImages = new Image[lives];
+        // for (int i = 0; i < lifeImages.Length; i++)
+        // {
+        //     if (i == 0)
+        //     {
+        //         lifeImages[i] = Instantiate(lifePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
+        //         lifeImages[i].transform.SetParent(canvas, false);
+        //         lifeImages[i].transform.Translate(-1, 0, 0);
+        //     }
+        //     else if (i == 1)
+        //     {
+        //         lifeImages[i] = Instantiate(lifePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
+        //         lifeImages[i].transform.SetParent(canvas, false);
+        //     }
+        //     else
+        //     {
+        //         lifeImages[i] = Instantiate(lifePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
+        //         lifeImages[i].transform.SetParent(canvas, false);
+        //         lifeImages[i].transform.Translate(1, 0, 0);
+        //     }
+        // }
     }
 
-    void Init(int lives)
+    public void Init(int lives)
     {
         this.lives = lives;
     }
@@ -42,31 +47,26 @@ public class Lives : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(lives > maxLives) {
-        //     lives = maxLives;
-        // }
+        if (lives > maxLives)
+        {
+            lives = maxLives;
+        }
 
-        // for (int i = 0; i < hearts.Length; i++)
-        // {
-        //     if(i < lives) {
-        //         hearts[i].sprite = fullHeart;
-        //     } else {
-        //         hearts[i].sprite = emptyHeart;
-        //     }
-
-        //     if (i < maxLives)
-        //     {
-        //         hearts[i].enabled = true;
-        //     }
-        //     else
-        //     {
-        //         hearts[i].enabled = false;
-        //     }
-        // }
+        for (int i = 0; i < lifeImages.Length; i++)
+        {
+            if (i < lives)
+            {
+                lifeImages[i].sprite = fullLife;
+            }
+            else
+            {
+                lifeImages[i].sprite = emptyLife;
+            }
+        }
     }
 
-    private int isEven(int number)
+    private bool isEven(int number)
     {
-        return number % 2 == 0 ? 1 : -1;
+        return number % 2 == 0 ? true : false;
     }
 }

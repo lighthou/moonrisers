@@ -10,6 +10,7 @@ public class GameMaster : MonoBehaviour
     public CameraController camera;
     public Transform playerPrefab;
     public Transform spawnPoint;
+    public Transform gameOverPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -39,14 +40,18 @@ public class GameMaster : MonoBehaviour
         int lives = player.GetComponent<Lives>().lives;
         Destroy(player.GetComponent<BlockBuilder>().ghost);
         Destroy(player.gameObject);
-        if (player.GetComponent<Lives>().lives > 0)
+        Debug.Log(lives);
+        if (lives > 0)
         {
             gm.RespawnPlayer();
-            playerTransform.GetComponent<Lives>().lives = lives - 1;
+            playerTransform.GetComponent<Lives>().Init(lives - 1);
 
         }
         else
         {
+            Transform hud = GameObject.Find("HUD").transform;
+            Transform gameover = Instantiate(gameOverPrefab, Vector3.zero, Quaternion.Euler(0,0,0));
+            gameover.SetParent(hud, false);
             // TODO display game over;
         }
     }
