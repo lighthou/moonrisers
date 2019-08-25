@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class GameMaster : MonoBehaviour
         {
             playerTransform = GameObject.Find("Player").transform;
         }
+
+        GameObject.Find("GameOver").GetComponent<Image>().enabled = false;
 
         camera.Init(() => playerTransform.position);
     }
@@ -49,10 +52,11 @@ public class GameMaster : MonoBehaviour
         }
         else
         {
-            Transform hud = GameObject.Find("HUD").transform;
-            Transform gameover = Instantiate(gameOverPrefab, Vector3.zero, Quaternion.Euler(0,0,0));
-            gameover.SetParent(hud, false);
+            // Transform hud = GameObject.Find("HUD").transform;
+            // Transform gameover = Instantiate(gameOverPrefab, Vector3.zero, Quaternion.Euler(0,0,0));
+            // gameover.SetParent(hud, false);
             // TODO display game over;
+            GameObject.Find("GameOver").GetComponent<Image>().enabled = true;
         }
     }
 }
