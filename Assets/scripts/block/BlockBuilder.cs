@@ -74,10 +74,12 @@ public class BlockBuilder : MonoBehaviour
             rigidbody.velocity = Vector2.zero;
         }
 
-        var block = ghost.GetComponent<FloatingBlock>();
-        if (block != null)
+        var components = ghost.GetComponents<MonoBehaviour>();
+        foreach (var component in components )
         {
-            block.PlaceBlock();
+            if (component is IBlock) {
+                ((IBlock) component).PlaceBlock();
+            }
         }
 
         // Reset the color back to normal

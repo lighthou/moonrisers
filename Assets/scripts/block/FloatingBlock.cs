@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloatingBlock : MonoBehaviour
+public class FloatingBlock : MonoBehaviour, IBlock
 {
     [SerializeField] private float frequency;
     [SerializeField] private float magnitude;

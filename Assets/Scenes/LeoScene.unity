@@ -226,8 +226,24 @@ PrefabInstance:
       propertyPath: onExit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 854424311020025035, guid: dcf107f72979fa0499c466383248e991,
+        type: 3}
+      propertyPath: followSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 854424311020025035, guid: dcf107f72979fa0499c466383248e991,
+        type: 3}
+      propertyPath: rollSpeed
+      value: 0.001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf107f72979fa0499c466383248e991, type: 3}
+--- !u!4 &414818728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6684843040697318698, guid: bbd7aa655a67744d194bd9e15614b1f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1971763956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &503860547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5774868063576517232, guid: ca1a3336290774ba8ab56c8e0d87a690,
@@ -313,6 +329,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31cb767d9a019457192d2d4b129d952f, type: 3}
+--- !u!114 &804900412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 854424311020025035, guid: dcf107f72979fa0499c466383248e991,
+    type: 3}
+  m_PrefabInstance: {fileID: 346174572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4e76ac028bb1e44b3de67e3ef4d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1372683585
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,5 +562,15 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 503860547}
+    - target: {fileID: 5774868063222909497, guid: ca1a3336290774ba8ab56c8e0d87a690,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 804900412}
+    - target: {fileID: 5774868063222909497, guid: ca1a3336290774ba8ab56c8e0d87a690,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 414818728}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1a3336290774ba8ab56c8e0d87a690, type: 3}
