@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster gm;
+    public CameraController camera;
     public Transform playerPrefab;
+    public Transform playerTransform;
     public Transform spawnPoint;
 
     // Start is called before the first frame update
@@ -15,11 +17,13 @@ public class GameMaster : MonoBehaviour
         {
             gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         }
+
+        camera.Init(() => playerTransform.position);
     }
 
     public void RespawnPlayer()
     {
-        Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        playerTransform = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         Debug.Log("Add spawn particles");
     }
 
